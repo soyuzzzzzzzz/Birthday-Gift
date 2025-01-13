@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catch the Hearts!</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #fce4ec;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #e91e63;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: #e91e63;
+      font-size: 2rem;
+      cursor: pointer;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+      }
+      100% {
+        top: 110%;
+      }
+    }
+
+    #score {
+      font-size: 1.5rem;
+      color: #880e4f;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #e91e63;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      display: none; /* Hidden until game is over */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Catch the Hearts❤️ Mro mutu ho haii jana nadeu pakda. Hehe</h1>
+    <p>Click garw samatna. 10 ota samata ani matrww arko thau jana sakxau. Best of luck❤️</p>
+    <div id="score">Score: 0</div>
+    <a id="next-link" href="final.html" class="btn">Next ➡️</a>
+  </div>
+
+  <script>
+    // Variables
+    let score = 0;
+    const container = document.body;
+    const scoreDisplay = document.getElementById("score");
+    const nextLink = document.getElementById("next-link");
+
+    // Create falling hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "❤️";
+
+      // Randomize position
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 1.5 + 1.5 + "rem";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+
+      // Append to body
+      container.appendChild(heart);
+
+      // Remove heart after animation
+      heart.addEventListener("animationend", () => heart.remove());
+
+      // Heart click event
+      heart.addEventListener("click", () => {
+        score++;
+        scoreDisplay.textContent = `Score: ${score}`;
+        heart.remove();
+
+        // Check if score reaches 10
+        if (score >= 10) {
+          nextLink.style.display = "inline-block"; // Show "Next" button
+          clearInterval(heartInterval); // Stop creating new hearts
+        }
+      });
+    }
+
+    // Create hearts at intervals
+    const heartInterval = setInterval(createHeart, 800);
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1> Malai maya garxau ni hainaaa. Mah the dherai garxu. I love you to the moon and back.❤️</h1>
+    <h1>Do you love me? ❤️</h1>
+    <button onclick="yesAnswer()">Yes</button>
+    <button onclick="noAnswer()">No</button>
+    <p id="feedback" class="hidden"></p>
+    <img id="noImage" src="e.png" alt="Sad Image" class="hidden">
+    <p id="yesMessage" class="hidden">I love you even moree. Here Kisses for you😘 😍</p>
+    <img id="yesImage" src="d.png" alt="Happy Image" class="hidden">
+    <br><a id="yesNextLink" href="question3.html" class="hidden">Next Question ➡️</a>
+  </div>
+  <script>
+    function yesAnswer() {
+      const yesMessage = document.getElementById("yesMessage");
+      const yesImage = document.getElementById("yesImage");
+      const yesNextLink = document.getElementById("yesNextLink");
+      const noMessage = document.getElementById("feedback");
+      const noImage = document.getElementById("noImage");
+      yesMessage.classList.remove("hidden");
+      yesImage.classList.remove("hidden");
+      yesNextLink.classList.remove("hidden");
+      noMessage.classList.add("hidden");
+      noImage.classList.add("hidden");
+    }
+
+    function noAnswer() {
+      const feedback = document.getElementById("feedback");
+      const noImage = document.getElementById("noImage");
+      const yesMessage = document.getElementById("yesMessage");
+      const yesImage = document.getElementById("yesImage");
+      const yesNextLink = document.getElementById("yesNextLink");
+      feedback.textContent = "Abuiii mero tw chittai dukhyo testo navanana🥺";
+      feedback.classList.remove("hidden");
+      noImage.classList.remove("hidden");
+      yesMessage.classList.add("hidden");
+      yesImage.classList.add("hidden");
+      yesNextLink.classList.add("hidden");
+    }
+  </script>
+</body>
+</html>

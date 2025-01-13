@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>How often do you think about me? 💭</h1>
+    <div>
+      <button onclick="showPhoto('photo1')">Every single day! 🌟</button>
+      <button onclick="showPhoto('photo2')">More than that! 🥰</button>
+    </div>
+    <div id="photo1" class="hidden">
+      <img src="g.png" alt="Her Smile" class="photo">
+      <br>
+      <a href="question4.html" class="btn">Next Question ➡️</a>
+    </div>
+    <div id="photo2" class="hidden">
+      <img src="b.jpg" alt="Her Kindness" class="photo">
+      <a href="question4.html" class="btn">Next Question ➡️</a>
+    </div>
+  </div>
+  <script>
+    function showPhoto(photoId) {
+      document.querySelectorAll('.hidden').forEach(div => div.style.display = 'none');
+      document.getElementById(photoId).style.display = 'block';
+    }
+  </script>
+</body>
+</html>

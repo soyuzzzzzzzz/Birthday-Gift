@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 5</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #fbe8ff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: #8e44ad;
+      margin-top: 20px;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    #options button {
+      background-color: #d16ee0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+      font-size: 1rem;
+    }
+
+    #options button:hover {
+      background-color: #a93dbd;
+    }
+
+    #feedback {
+      font-size: 1.2rem;
+      color: #d32f2f;
+      margin-top: 20px;
+      display: none;
+    }
+
+    #photo {
+      margin-top: 20px;
+      display: none;
+    }
+
+    #photo img {
+      width: 250px;
+      border-radius: 10px;
+      border: 2px solid #d16ee0;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      text-decoration: none;
+      background-color: #8e44ad;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #5e3378;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>What’s my special nickname for you? 🥰</h1>
+    <div id="options">
+      <button onclick="checkAnswer('Cutiepie')">Saanuu💜</button>
+      <button onclick="checkAnswer('Lovebug')">Babyyyyy❤️</button>
+      <button onclick="checkAnswer('Snugglepuff')">Cutuuuu😍</button>
+      <button onclick="checkAnswer('Sunshine')">Pramuuu💕</button>
+    </div>
+    <p id="feedback"></p>
+    <div id="photo">
+      <img id="photoDisplay" src="" alt="Feedback Photo">
+      <a href="game.html" id="gameLink" class="btn" style="display: none;">Play a Game! 🎮</a>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer(answer) {
+      const correctAnswer = "Cutiepie"; // Change this to the correct nickname
+      const feedback = document.getElementById("feedback");
+      const photo = document.getElementById("photo");
+      const photoDisplay = document.getElementById("photoDisplay");
+      const gameLink = document.getElementById("gameLink");
+
+      feedback.style.display = "block";
+      photo.style.display = "block";
+
+      if (answer === correctAnswer) {
+        // Correct Answer
+        feedback.textContent = "Hehe. Yes yess tmi meroo pyaruuuu saanuu💜";
+        feedback.style.color = "#4caf50";
+        photoDisplay.src = "yes.png"; // Replace with correct photo path
+        photoDisplay.alt = "Correct Answer Photo";
+        gameLink.style.display = "block"; // Show the link to the game
+      } else {
+        // Wrong Answer
+        feedback.textContent = "Naii k like the og nickname k ho😭";
+        feedback.style.color = "#d32f2f";
+        photoDisplay.src = "no.png"; // Replace with wrong photo path
+        photoDisplay.alt = "Wrong Answer Photo";
+        gameLink.style.display = "none"; // Hide the game link on wrong answer
+      }
+    }
+  </script>
+</body>
+</html>

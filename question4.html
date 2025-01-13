@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 4</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>What’s your favorite memory with me? 🌟</h1>
+    <div>
+      <button onclick="showPhoto('photo1')">Every single second</button>
+      <button onclick="showPhoto('photo2')">Every single day</button>
+      <button onclick="showPhoto('photo3')">Every Moment</button>
+    </div>
+    <div id="photo1" class="hidden">
+      <img src="a.jpg" alt="Every single second" class="photo">
+      <a href="question5.html" class="btn">Next Question ➡️</a>
+    </div>
+    <div id="photo2" class="hidden">
+      <img src="z.jpg" alt="Every single day" class="photo">
+      <a href="question5.html" class="btn">Next Question ➡️</a>
+    </div>
+    <div id="photo3" class="hidden">
+      <img src="c.jpg" alt="Every Moment" class="photo">
+      <a href="question5.html" class="btn">Next Question ➡️</a>
+    </div>
+  </div>
+  <script>
+    function showPhoto(photoId) {
+      document.querySelectorAll('.hidden').forEach(div => div.style.display = 'none');
+      document.getElementById(photoId).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
